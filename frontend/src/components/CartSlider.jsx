@@ -13,7 +13,7 @@ export default function CartSlider({ cartItems, onQtyChange, onRemove }) {
   try {
     // 2) Fire off the POST
     const response = await fetch(
-      'http://localhost:4242/create-checkout-session',
+      'https://configurator-yjnt.onrender.com/create-checkout-session',
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
