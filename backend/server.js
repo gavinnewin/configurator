@@ -10,7 +10,8 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, { apiVersion: '2022-11-
 
 const app = express();
 app.use(express.json());
-app.use(cors({ origin: 'http://localhost:5173' }));
+app.use(cors({ origin: 'http://localhost:5173',
+    'https://configurator-pearl-eta.vercel.app' }));
 
 app.post('/create-checkout-session', async (req, res) => {
   const { cartItems } = req.body;
