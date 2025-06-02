@@ -13,7 +13,6 @@ app.use(express.json());
 app.use(cors({
   origin: function (origin, callback) {
     const allowedOrigins = [
-      'http://localhost:5173',
       'https://configurator-pearl-eta.vercel.app'
     ];
     // Allow requests with no origin (like mobile apps, curl, etc.)
