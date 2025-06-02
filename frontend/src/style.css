@@ -1,0 +1,426 @@
+/* General reset and font import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;500;600&family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+:root {
+    --bg-color: #f9f9f9;
+    --text-color: #515151;
+    --main-color: black;
+    --second-color: rgb(253, 207, 65);
+}
+
+body {
+    background-color: var(--bg-color);
+}
+
+/* Header styling */
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: white;
+}
+
+.header .logo img {
+    max-width: 150px;
+}
+
+/* Titles styling */
+h1 {
+    margin-top: 30px;
+    text-align: center;
+}
+
+h2 {
+    margin-left: 54%;
+    margin-top: 50px;
+}
+
+#your-cart{
+   text-align: center;
+   margin: 2rem 0;
+}
+
+/* Configurator styling */
+.configurator {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 100vw;
+    margin-top: 40px;
+    width: 98%;
+}
+
+/* Keyboard preview styling */
+.keyboard-preview {
+    width: 50%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.keyboard-preview img {
+    width: 80%;
+    max-width: 400px;
+    height: auto;
+}
+
+/* Accordion container styling */
+.accordion {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Accordion item styling */
+.accordion-item {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Accordion header styling */
+.accordion-header {
+    padding: 15px;
+    background-color: #f1f1f1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.accordion-header:hover {
+    background-color: #e0e0e0;
+}
+
+/* Accordion content styling */
+.accordion-content {
+    display: none;
+    gap: 20px;
+    padding: 10px 15px;
+    background-color: #f9f9f9;
+    border-top: 1px solid #ddd;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+/* Active accordion item content */
+.accordion-item.active .accordion-content {
+    display: flex;
+}
+
+/* Chevron icon styling */
+.accordion-header i {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+/* Rotate chevron icon when active */
+.accordion-item.active .accordion-header i {
+    transform: rotate(180deg);
+}
+
+/* Color option styling */
+.color-option {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #888;
+}
+
+.color-option:hover {
+    transform: scale(1.1);
+}
+
+/* Button container styling */
+.button-container {
+    display: flex;
+    justify-content: right;
+    margin-top: 20px;
+    width: 100%;
+}
+
+/* Add to cart button styling */
+#add-to-cart {
+    width: 45%;
+    padding: 15px;
+    background-color: var(--main-color);
+    color: white;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+#add-to-cart:hover{
+    background-color: var(--second-color);
+}
+
+.color-option span {
+    display: none;
+}
+
+/* Show text when the color option is selected (when clicked) */
+.color-option.selected span {
+    display: inline;
+}
+
+/* make room for a label next to the dot */
+.color-option {
+    /* hide any text node inside the 30×30 box */
+    font-size: 0;
+    overflow: hidden;
+  }
+  
+  
+  /* the hidden label */
+  .color-option::after {
+    content: attr(data-label);
+    position: absolute;
+    top: 50%;
+    left: calc(100% + 8px);   /* 8px gap between dot and text */
+    transform: translateY(-50%);
+    white-space: nowrap;
+    display: none;
+    font-size: 0.9rem;
+    color: var(--text-color);
+  }
+  
+  /* show it when selected */
+  .color-option.selected::after {
+    display: block;
+  }
+  
+
+.accordion-item.active .accordion-content { display: flex; }
+
+/* --- Stack the two images on top of each other --- */
+.keyboard-preview {
+  position: relative;
+  width: 80%;           /* match your previous sizing */
+  max-width: 400px;      /* match your previous sizing */
+  margin: 0 auto 20px;   /* center and give bottom space */
+  height: auto;          /* let the images dictate height */
+}
+
+/* Base and caps layers both sit absolutely in the same spot */
+#keyboard-base,
+#keyboard-caps {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+
+/* (Optional) keep your hover/transition if you like */
+#keyboard-base,
+#keyboard-caps {
+  transition: opacity 0.2s ease;
+}
+
+.checkout-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    width: 40px;
+    height: 40px;
+    color: black;
+    font-size: 1.4rem;
+    transition: color 0.2s;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+
+
+.checkout-btn:hover {
+  color: rgb(253, 207, 65);
+}
+
+
+/* the hidden slider (off-canvas to the right) */
+.cart-slider {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 500px;              /* adjust width */
+  height: 100%;
+  background: white;
+  box-shadow: -2px 0 8px rgba(0,0,0,0.2);
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* when open, slide into view */
+.cart-slider.open {
+  transform: translateX(0);
+}
+
+/* close button */
+.cart-close {
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+/* optional: style your checkout button inside */
+#checkout-final.button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background: var(--main-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+#checkout-final.button:hover{
+    background: rgb(253, 207, 65);
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.cart-thumb {
+  width: 100px;
+  height: auto;
+  margin-right: 1rem;
+}
+.cart-details {
+  flex: 1;
+}
+.cart-controls {
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+}
+.qty-btn {
+  width: 24px;
+  height: 24px;
+  border: 1px solid #ccc;
+  background: none;
+  cursor: pointer;
+  text-align: center;
+  line-height: 20px;
+}
+.qty {
+  margin: 0 0.5rem;
+}
+.remove-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #999;
+}
+.remove-btn:hover {
+  color: #333;
+}
+
+/* Cart icon badge */
+.cart-badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  min-width: 13px;
+  height: 15px;
+  padding: 0 5px;
+  background-color: var(--second-color); /* e.g. yellow accent */
+  color: black;
+  font-size: 0.75rem;
+  font-weight: bold;
+  line-height: 18px;
+  text-align: center;
+  border-radius: 50%;
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+}
+
+.checkout-page {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.checkout-page h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.checkout-summary {
+  margin-bottom: 1.5rem;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.summary-qty {
+  font-weight: bold;
+}
+
+.checkout-form h3 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.checkout-form .StripeElement {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.checkout-submit {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 12px;
+  background: var(--main-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.checkout-submit:hover {
+  background: var(--second-color);
+}
+
+.checkout-message {
+  margin-top: 1rem;
+  text-align: center;
+  color: green;
+}
+
