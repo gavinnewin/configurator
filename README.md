@@ -51,8 +51,6 @@ A clean, responsive web app for customizing your mechanical keyboard’s case, p
    git clone https://github.com/gavinnewin/configurator.git
    cd configurator
 
-
-
 ## 📷 Screenshots
 
 ### Homepage
